@@ -70,7 +70,7 @@ echo -e "# Nom du bridge\nLXC_BRIDGE=$LXC_BRIDGE\n" >> "$pcheck_config"
 echo -e "# Distribution debian\nDISTRIB=$DISTRIB" >> "$pcheck_config"
 echo -e "# Branche à utiliser pour le script d'install de cette distribution (si non standard)\nBRANCH=$branch\n" >> "$pcheck_config"
 
-echo -e "\e[1m> Update et install lxc lxctl\e[0m" | tee -a "$LOG_BUILD_LXC"
+echo -e "\e[1m> Update et install lxc lxctl lxc-template\e[0m" | tee -a "$LOG_BUILD_LXC"
 sudo apt-get update >> "$LOG_BUILD_LXC" 2>&1
 sudo apt-get install -y lxc lxctl lxc-templates >> "$LOG_BUILD_LXC" 2>&1
 
