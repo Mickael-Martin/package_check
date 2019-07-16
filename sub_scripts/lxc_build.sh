@@ -139,7 +139,7 @@ if [ $dnsforce -eq 1 ]; then	# Force la réécriture du resolv.conf
 fi
 
 # Fix an issue with apparmor when the container start.
-echo -e "\n# Fix apparmor issues\nlxc.aa_profile = unconfined" | sudo tee -a /var/lib/lxc/$LXC_NAME/config >> "$LOG_BUILD_LXC" 2>&1
+echo -e "\n# Fix apparmor issues\nlxc.apparmor.profile=unconfined" | sudo tee -a /var/lib/lxc/$LXC_NAME/config >> "$LOG_BUILD_LXC" 2>&1
 
 echo -e "\e[1m> Démarrage de la machine\e[0m" | tee -a "$LOG_BUILD_LXC"
 sudo lxc-start -n $LXC_NAME -d --logfile "$script_dir/lxc_boot.log" >> "$LOG_BUILD_LXC" 2>&1
