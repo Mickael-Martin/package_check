@@ -105,6 +105,7 @@ echo "net.ipv4.ip_forward=1" | sudo tee /etc/sysctl.d/lxc_pchecker.conf >> "$LOG
 sudo sysctl -p /etc/sysctl.d/lxc_pchecker.conf >> "$LOG_BUILD_LXC" 2>&1
 
 echo -e "\e[1m> Ajoute un brige réseau pour la machine virtualisée\e[0m" | tee -a "$LOG_BUILD_LXC"
+mkdir -p /etc/network/interfaces.d
 echo | sudo tee /etc/network/interfaces.d/$LXC_BRIDGE <<EOF >> "$LOG_BUILD_LXC" 2>&1
 auto $LXC_BRIDGE
 iface $LXC_BRIDGE inet static
